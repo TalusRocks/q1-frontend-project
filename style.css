@@ -28,24 +28,31 @@ p {
   font-size: 1.2em;
 }
 
-.text-center {
-  text-align: center;
-}
-
-.gray {
-  color: #9B9B9B;
-}
-
 /*----- TITLES -----*/
 .title {
   display: flex;
   align-items: center;
-  /*margin: 0 2em;*/
 }
 
 .title .fa {
   font-size: 2em;
   margin-left: auto;
+}
+
+/*----- FILTERS -----*/
+.color-filter {
+  display: flex;
+  justify-content: center;
+  max-width: 500px;
+}
+
+.color-filter > div {
+  width: 33.33%;
+  text-align: center;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*----- CHARACTERS -----*/
@@ -104,6 +111,12 @@ p {
 
 .disabled {
   opacity: 0.5;
+}
+
+.remaining {
+  text-align: center;
+  color: #9B9B9B;
+  margin-left: -4px;
 }
 
 .character {
