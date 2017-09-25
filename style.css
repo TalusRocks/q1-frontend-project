@@ -13,6 +13,10 @@
   margin-right: .5em;
 }
 
+.mrg-bottom {
+  margin-bottom: 1em;
+}
+
 h1 {
   font-size: 3em;
 }
@@ -37,6 +41,7 @@ p {
 .character-wrap {
   display: flex;
   font-weight: 900;
+  margin-bottom: 1em;
 }
 
 .cost-wrap {
@@ -45,6 +50,26 @@ p {
 
 .yellow {
   background-color: #F0BC11;
+}
+
+.yellow-select {
+  background-color: #E18A01;
+}
+
+.blue {
+  background-color: #3272BD;
+}
+
+.blue-select {
+  background-color: #09328C;
+}
+
+.red {
+  background-color: #BB091F;
+}
+
+.red-select {
+  background-color: #890003;
 }
 
 .cost {
@@ -59,7 +84,6 @@ p {
 }
 
 .selected {
-  background-color: #E18A01;
   height: 8px;
   width: 100%;
   position: absolute;
