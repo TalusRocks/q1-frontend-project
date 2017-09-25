@@ -16,6 +16,9 @@
 .mrg-bottom {
   margin-bottom: 1em;
 }
+.mrg-top {
+  margin-top: .5em;
+}
 
 h1 {
   font-size: 3em;
@@ -23,6 +26,14 @@ h1 {
 
 p {
   font-size: 1.2em;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.gray {
+  color: #9B9B9B;
 }
 
 /*----- TITLES -----*/
@@ -42,6 +53,7 @@ p {
   display: flex;
   font-weight: 900;
   margin-bottom: 1em;
+  max-width: 500px;
 }
 
 .cost-wrap {
@@ -97,6 +109,7 @@ p {
 .character {
   background-color: #EDECEC;
   width: 100%;
+  height: 42px;
   display: flex;
   align-items: center;
   color: #474747;
