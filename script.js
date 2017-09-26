@@ -1,9 +1,10 @@
 let characterCost = document.querySelectorAll('.cost');
 
 for (let i = 0; i < characterCost.length; i++) {
-  let characterCostValue = characterCost[i];
+  let costValue = document.querySelectorAll('.cost-value');
+  let thisCost = costValue[i];
 
-  characterCostValue.addEventListener('click', function (event) {
-    console.log('clicked')
+  thisCost.addEventListener('click', function (event) {
+    console.log(thisCost.textContent)
   });
 }
