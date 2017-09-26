@@ -5,7 +5,19 @@ for (let i = 0; i < characterCost.length; i++) {
   let cost = characterCost[i]
 
   cost.addEventListener('click', function (event) {
-    console.log(cost.textContent.trim())
+    //get selected cost value
+    let selectedCost = cost.textContent.trim();
+
+    //access the total (30)
+    let total = document.querySelector('#total');
+
+    //subtract from total
+    total.textContent -= selectedCost;
+
+    //append character to team
+    // let teamContent = document.querySelector('#team-content');
+    // teamContent.innerHTML = "hi";
+
   });
 }
 

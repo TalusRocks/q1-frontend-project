@@ -120,21 +120,12 @@ body {
   cursor: pointer;
 }
 
-
-
-
-
-
-
+.selected {
+  border: 2px solid #000;
+}
 
 .disabled {
   opacity: 0.5;
-}
-
-.remaining {
-  text-align: center;
-  color: #9B9B9B;
-  margin-left: -4px;
 }
 
 .character {
