@@ -119,6 +119,7 @@ body {
   margin-right: 2px;
   position: relative;
   color: #fff;
+  cursor: pointer;
 }
 
 .selected {
