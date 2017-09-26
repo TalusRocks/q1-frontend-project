@@ -16,8 +16,13 @@
 .mrg-bottom {
   margin-bottom: 1em;
 }
+
 .mrg-top {
   margin-top: .5em;
+}
+
+.lg-mrg-top {
+  margin-top: 3em;
 }
 
 h1 {
@@ -26,6 +31,10 @@ h1 {
 
 p {
   font-size: 1.2em;
+}
+
+body {
+  margin: 0.5em;
 }
 
 /*----- TITLES -----*/
@@ -50,8 +59,8 @@ p {
 /*----- FILTERS -----*/
 .color-filter {
   display: flex;
-  margin: 0 auto;
-  max-width: 500px;
+  /*margin: 0 auto;*/
+  /*max-width: 500px;*/
 }
 
 .color-filter > div {
@@ -71,7 +80,6 @@ p {
   display: flex;
   font-weight: 900;
   margin-bottom: 1em;
-  max-width: 500px;
 }
 
 .cost-wrap {
@@ -143,3 +151,23 @@ p {
   margin-left: auto;
   color: #BB091F;
 }
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .characters-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .character-wrap {
+    width: 49%;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {  }
