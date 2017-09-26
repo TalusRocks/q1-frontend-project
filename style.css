@@ -54,13 +54,12 @@ body {
   color: #fff;
   font-size: 3em;
   padding: .5em;
+  background-color: #3272BD;
 }
 
 /*----- FILTERS -----*/
 .color-filter {
   display: flex;
-  /*margin: 0 auto;*/
-  /*max-width: 500px;*/
 }
 
 .color-filter > div {
@@ -90,7 +89,7 @@ body {
   background-color: #F0BC11;
 }
 
-.yellow-select {
+.yellow:hover {
   background-color: #E18A01;
 }
 
@@ -98,7 +97,7 @@ body {
   background-color: #3272BD;
 }
 
-.blue-select {
+.blue:hover {
   background-color: #09328C;
 }
 
@@ -106,7 +105,7 @@ body {
   background-color: #BB091F;
 }
 
-.red-select {
+.red:hover {
   background-color: #890003;
 }
 
@@ -117,17 +116,16 @@ body {
   align-items: center;
   justify-content: center;
   margin-right: 2px;
-  position: relative;
   color: #fff;
   cursor: pointer;
 }
 
-.selected {
-  height: 8px;
-  width: 100%;
-  position: absolute;
-  bottom: 0px;
-}
+
+
+
+
+
+
 
 .disabled {
   opacity: 0.5;
