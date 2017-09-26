@@ -1,10 +1,9 @@
-let characterList = document.querySelector('.characters-wrap');
+let characterCost = document.querySelectorAll('.cost');
 
-characterList.addEventListener('click', function (event) {
-  let findClass = event.target.classList;
+for (let i = 0; i < characterCost.length; i++) {
+  let characterCostValue = characterCost[i];
 
-  if(findClass.contains('cost') || findClass.contains('cost-value') ||
-  findClass.contains('selected')) {
-    console.log('found cost?')
-  }
-});
+  characterCostValue.addEventListener('click', function (event) {
+    console.log('clicked')
+  });
+}
