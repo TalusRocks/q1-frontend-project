@@ -29,6 +29,12 @@ for ( var char in hero.red ) {
     let secondCost = hero.red[char].cost[1];
     thisCost.innerHTML = '<div class="cost"><p class="cost-value">' + firstCost + '</p></div>' + '<div class="cost"><p class="cost-value">' + secondCost + '</p></div>';
 
+    //hide the first die value of zero, for characters with only one die cost 
+    if(firstCost === 0) {
+      console.log(thisCost.firstChild)
+      thisCost.firstChild.style.opacity = 0;
+    }
+
   }
 }
 
