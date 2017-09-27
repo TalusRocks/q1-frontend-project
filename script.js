@@ -70,23 +70,24 @@ for ( var blueHeroChar in hero.blue ) {
 
 
 
-
-
-//grab character cost
+//clickable area, then trim to get cost
 let characterCost = document.querySelectorAll('.cost');
 
 for (let i = 0; i < characterCost.length; i++) {
-  let cost = characterCost[i]
+  //access the total (30)
+  let total = document.querySelector('#total');
 
-  cost.addEventListener('click', function (event) {
+  //get all the costs
+  let allCosts = document.querySelectorAll('.cost-value');
+
+  //add event listener to each cost...
+  let cost = characterCost[i]
+  cost.addEventListener('click', handleCost);
+
+  //fire this function on click
+  function handleCost(event) {
     //get selected cost
     let selectedCost = cost.textContent.trim();
-
-    //access the total (30)
-    let total = document.querySelector('#total');
-
-    //if too costly, remove event listener and add disabled class
-
 
     //if too many characters are selected, show an error msg
     if((total.textContent - selectedCost) < 0) {
@@ -96,20 +97,27 @@ for (let i = 0; i < characterCost.length; i++) {
       let teamCount = document.querySelector('.team-count');
       teamCount.append(alert);
     } else {
-      //subtract from total
+      //subtract selected from total
       total.textContent -= selectedCost;
     }
 
 
-    //append character to team
-    // let teamContent = document.querySelector('#team-content');
-    // teamContent.innerHTML = "hi";
+    //if too costly, remove event listener and add disabled class
+    allCosts.forEach(function(element){
+      if ((total.textContent - element.textContent) < 0) {
+        element.parentElement.classList.add('disabled');
+        // element.parentElement.removeEventListener('click', handleCost);
+      }
+    });
 
-  });
-
-
+  };
 
 }
+
+
+
+
+
 
 //show and hide sections with chevron toggle
 // let chevron = document.querySelectorAll('.fa');

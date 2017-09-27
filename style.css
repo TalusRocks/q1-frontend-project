@@ -69,6 +69,7 @@ body {
 /*----- FILTERS -----*/
 .color-filter {
   display: flex;
+  font-size: 1.6em;
 }
 
 .color-filter > div {
