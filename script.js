@@ -1,3 +1,33 @@
+
+//POPULATE CHARACTER HTML WITH DATA
+let characterWrap = document.createElement('div');
+characterWrap.className = 'character-wrap';
+characterWrap.innerHTML = `<div class="cost-wrap">
+  <div class="cost yellow">
+    <p class="cost-value"></p>
+  </div>
+  <div class="cost yellow">
+    <p class="cost-value"></p>
+  </div>
+</div>
+<div class="character">
+  <p class="mrg-left"></p>
+  <p class="health mrg-right"></p>
+</div>`;
+
+let charactersContent = document.querySelector('.characters-content');
+
+for ( char in hero.red ) {
+
+  // let redHeroName = hero.red[char].name;
+
+  if(characterWrap) {
+    let dupWrap = characterWrap.cloneNode(true);
+    charactersContent.append(dupWrap)
+  }
+
+}
+
 //grab character cost
 let characterCost = document.querySelectorAll('.cost');
 
