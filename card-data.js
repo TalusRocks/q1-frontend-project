@@ -66,7 +66,7 @@ let hero = {
   red : {
     'Rebel Trooper' : {
       name : 'Rebel Trooper',
-      cost : [8],
+      cost : [0, 8],
       health : 7,
       unique : false
     },

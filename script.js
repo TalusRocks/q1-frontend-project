@@ -3,31 +3,31 @@
 let characterWrap = document.createElement('div');
 characterWrap.className = 'character-wrap';
 characterWrap.innerHTML = `<div class="cost-wrap">
-  <div class="cost yellow">
-    <p class="cost-value">#</p>
-  </div>
-  <div class="cost yellow">
-    <p class="cost-value">##</p>
-  </div>
 </div>
 <div class="character">
-  <p class="character-name mrg-left">Name</p>
-  <p class="health mrg-right">Health</p>
 </div>`;
 
 let charactersContent = document.querySelector('.characters-content');
 
 for ( var char in hero.red ) {
   if(characterWrap) {
-    //create the HTML containers; THIS WORKS!
+    //create the HTML containers
     let dupWrap = characterWrap.cloneNode(true);
     charactersContent.append(dupWrap);
 
-    //put in each character's name
+
+    //put in each character's name, health
     //use lastChild to access nodelist
     let thisChar = dupWrap.lastChild;
     let thisName = hero.red[char].name;
-    thisChar.innerHTML = '<p class=" character-name mrg-left">' + thisName + '</p>';
+    let thisHealth = hero.red[char].health;
+    thisChar.innerHTML = '<p class=" character-name mrg-left">' + thisName + '</p>' + '<p class="health mrg-right">' + thisHealth + '</p>' ;
+
+    //put in each character's dice costs
+    let thisCost = dupWrap.firstChild;
+    let firstCost = hero.red[char].cost[0];
+    let secondCost = hero.red[char].cost[1];
+    thisCost.innerHTML = '<div class="cost"><p class="cost-value">' + firstCost + '</p></div>' + '<div class="cost"><p class="cost-value">' + secondCost + '</p></div>';
 
   }
 }
