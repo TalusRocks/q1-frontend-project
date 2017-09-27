@@ -113,6 +113,8 @@ for (let i = 0; i < characterCost.length; i++) {
       total.textContent -= selectedCost;
     }
 
+    //if character is unique, prevent from adding twice
+    //need to check against current team?
 
     //if too costly, remove event listener and add disabled class
     allCosts.forEach(function(element){
@@ -122,9 +124,15 @@ for (let i = 0; i < characterCost.length; i++) {
       }
     });
 
-  };
+    //add selected character to team!
+    //find where to append it
 
-}
+    //traversing the DOM... but doesn't select *CLICKED* element
+    let selectedCharacter = document.querySelectorAll('.character-wrap')
+
+  };//close handleCost function
+
+}//close for loop
 
 
 
