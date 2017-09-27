@@ -1,4 +1,3 @@
-
 //POPULATE CHARACTER HTML WITH DATA
 let characterWrap = document.createElement('div');
 characterWrap.className = 'character-wrap';
@@ -9,40 +8,67 @@ characterWrap.innerHTML = `<div class="cost-wrap">
 
 let charactersContent = document.querySelector('.characters-content');
 
-for ( var char in hero.red ) {
+
+for ( var redHeroChar in hero.red ) {
   if(characterWrap) {
     //create the HTML containers
     let dupWrap = characterWrap.cloneNode(true);
     charactersContent.append(dupWrap);
 
-
     //put in each character's name, health
     //use lastChild to access nodelist
     let thisChar = dupWrap.lastChild;
-    let thisName = hero.red[char].name;
-    let thisHealth = hero.red[char].health;
-    thisChar.innerHTML = '<p class=" character-name mrg-left">' + thisName + '</p>' + '<p class="health mrg-right">' + thisHealth + '</p>' ;
+    let thisName = hero.red[redHeroChar].name;
+    let thisHealth = hero.red[redHeroChar].health;
+    thisChar.innerHTML = '<p class=" character-name mrg-left">' + thisName + '<span class="tiny mrg-left">' + redHeroChar + '</span></p>' + '<p class="health mrg-right">' + thisHealth + '</p>' ;
 
     //put in each character's dice costs
     let thisCost = dupWrap.firstChild;
-    let firstCost = hero.red[char].cost[0];
-    let secondCost = hero.red[char].cost[1];
-    thisCost.innerHTML = '<div class="cost"><p class="cost-value">' + firstCost + '</p></div>' + '<div class="cost"><p class="cost-value">' + secondCost + '</p></div>';
+    let firstCost = hero.red[redHeroChar].cost[0];
+    let secondCost = hero.red[redHeroChar].cost[1];
+    thisCost.innerHTML = '<div class="cost red"><p class="cost-value">' + firstCost + '</p></div>' + '<div class="cost red"><p class="cost-value">' + secondCost + '</p></div>';
 
-    //hide the first die value of zero, for characters with only one die cost 
+    //hide the first die value if it is zero, for characters with only one die cost
     if(firstCost === 0) {
-      console.log(thisCost.firstChild)
       thisCost.firstChild.style.opacity = 0;
     }
-
   }
 }
 
 //add class name of 'red' to each
-let addColorClass = document.querySelectorAll('.cost');
-for (let i = 0; i < addColorClass.length; i++) {
-  addColorClass[i].classList.add('red');
+// let addColorClass = document.querySelectorAll('.cost');
+// for (let i = 0; i < addColorClass.length; i++) {
+//   addColorClass[i].classList.add('red');
+// }
+
+//BLUE
+for ( var blueHeroChar in hero.blue ) {
+  if(characterWrap) {
+    //create the HTML containers
+    let dupWrap = characterWrap.cloneNode(true);
+    charactersContent.append(dupWrap);
+
+    //put in each character's name, health
+    //use lastChild to access nodelist
+    let thisChar = dupWrap.lastChild;
+    let thisName = hero.blue[blueHeroChar].name;
+    let thisHealth = hero.blue[blueHeroChar].health;
+    thisChar.innerHTML = '<p class=" character-name mrg-left">' + thisName + '<span class="tiny mrg-left">' + blueHeroChar + '</span></p>' + '<p class="health mrg-right">' + thisHealth + '</p>' ;
+
+    //put in each character's dice costs
+    let thisCost = dupWrap.firstChild;
+    let firstCost = hero.blue[blueHeroChar].cost[0];
+    let secondCost = hero.blue[blueHeroChar].cost[1];
+    thisCost.innerHTML = '<div class="cost blue"><p class="cost-value">' + firstCost + '</p></div>' + '<div class="cost blue"><p class="cost-value">' + secondCost + '</p></div>';
+
+    //hide the first die value if it is zero, for characters with only one die cost
+    if(firstCost === 0) {
+      thisCost.firstChild.style.opacity = 0;
+    }
+  }
 }
+
+
 
 
 
