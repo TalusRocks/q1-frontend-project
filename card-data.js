@@ -83,7 +83,7 @@ let hero = {
       unique : true
     }
   },
-  
+
   yellow : {
     'Force-Sensitive Thief' : {
       name : 'Ezra Bridger',

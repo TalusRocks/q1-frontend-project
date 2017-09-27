@@ -4,29 +4,41 @@ let characterWrap = document.createElement('div');
 characterWrap.className = 'character-wrap';
 characterWrap.innerHTML = `<div class="cost-wrap">
   <div class="cost yellow">
-    <p class="cost-value"></p>
+    <p class="cost-value">#</p>
   </div>
   <div class="cost yellow">
-    <p class="cost-value"></p>
+    <p class="cost-value">##</p>
   </div>
 </div>
 <div class="character">
-  <p class="mrg-left"></p>
-  <p class="health mrg-right"></p>
+  <p class="character-name mrg-left">Name</p>
+  <p class="health mrg-right">Health</p>
 </div>`;
 
 let charactersContent = document.querySelector('.characters-content');
 
-for ( char in hero.red ) {
-
-  // let redHeroName = hero.red[char].name;
-
+for ( var char in hero.red ) {
   if(characterWrap) {
+    //create the HTML containers; THIS WORKS!
     let dupWrap = characterWrap.cloneNode(true);
-    charactersContent.append(dupWrap)
-  }
+    charactersContent.append(dupWrap);
 
+    //put in each character's name
+    //use lastChild to access nodelist
+    let thisChar = dupWrap.lastChild;
+    let thisName = hero.red[char].name;
+    thisChar.innerHTML = '<p class=" character-name mrg-left">' + thisName + '</p>';
+
+  }
 }
+
+//add class name of 'red' to each
+let addColorClass = document.querySelectorAll('.cost');
+for (let i = 0; i < addColorClass.length; i++) {
+  addColorClass[i].classList.add('red');
+}
+
+
 
 //grab character cost
 let characterCost = document.querySelectorAll('.cost');
