@@ -19,8 +19,17 @@ for ( var redHeroChar in hero.red ) {
     //use lastChild to access nodelist
     let thisChar = dupWrap.lastChild;
     let thisName = hero.red[redHeroChar].name;
+    if (hero.red[redHeroChar].unique === true) {
+      thisName = '<i class="fa fa-star mrg-right" aria-hidden="true"></i>' + thisName;
+    }
     let thisHealth = hero.red[redHeroChar].health;
     thisChar.innerHTML = '<p class=" character-name mrg-left">' + thisName + '<span class="tiny mrg-left">' + redHeroChar + '</span></p>' + '<p class="health mrg-right">' + thisHealth + '</p>' ;
+
+    //locate name
+    //console.log(thisName)
+    //if...
+
+    //append star
 
     //put in each character's dice costs
     let thisCost = dupWrap.firstChild;
@@ -52,6 +61,9 @@ for ( var blueHeroChar in hero.blue ) {
     //use lastChild to access nodelist
     let thisChar = dupWrap.lastChild;
     let thisName = hero.blue[blueHeroChar].name;
+    if (hero.red[redHeroChar].unique === true) {
+      thisName = '<i class="fa fa-star mrg-right" aria-hidden="true"></i>' + thisName;
+    }
     let thisHealth = hero.blue[blueHeroChar].health;
     thisChar.innerHTML = '<p class=" character-name mrg-left">' + thisName + '<span class="tiny mrg-left">' + blueHeroChar + '</span></p>' + '<p class="health mrg-right">' + thisHealth + '</p>' ;
 
