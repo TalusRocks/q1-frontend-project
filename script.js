@@ -138,21 +138,21 @@ for (let i = 0; i < characterCost.length; i++) {
 
 
 //show and hide sections with chevron toggle
-let chevron = document.querySelectorAll('.fa');
-
-for (let i = 0; i < chevron.length; i++) {
-  let chev = chevron[i];
-  chev.addEventListener('click', function(event) {
-
-    var toggleContent = document.querySelectorAll('.fa-cheveron-down');
-
-    let toggleThis = chevron[i].parentElement.nextElementSibling;
-
-    if (toggleThis.style.display === 'none') {
-        toggleThis.style.display = 'flex';
-    } else {
-        toggleThis.style.display = 'none';
-    }
-
-  }); //close event listener
-}//close for loop
+// let chevron = document.querySelectorAll('.fa');
+//
+// for (let i = 0; i < chevron.length; i++) {
+//   let chev = chevron[i];
+//   chev.addEventListener('click', function(event) {
+//
+//     var toggleContent = document.querySelectorAll('.fa-cheveron-down');
+//
+//     let toggleThis = chevron[i].parentElement.nextElementSibling;
+//
+//     if (toggleThis.style.display === 'none') {
+//         toggleThis.style.display = 'flex';
+//     } else {
+//         toggleThis.style.display = 'none';
+//     }
+//
+//   }); //close event listener
+// }//close for loop
