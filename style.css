@@ -70,6 +70,7 @@ body {
 .color-filter {
   display: flex;
   font-size: 1.6em;
+  width: 100%;
 }
 
 .color-filter > div {

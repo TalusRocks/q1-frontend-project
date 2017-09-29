@@ -147,13 +147,12 @@ for (let i = 0; i < chevron.length; i++) {
     var toggleContent = document.querySelectorAll('.fa-cheveron-down');
 
     let toggleThis = chevron[i].parentElement.nextElementSibling;
-    // function toggle() {
+
     if (toggleThis.style.display === 'none') {
-        toggleThis.style.display = 'block';
+        toggleThis.style.display = 'flex';
     } else {
         toggleThis.style.display = 'none';
     }
-    //} //close function toggle()
 
   }); //close event listener
 }//close for loop
