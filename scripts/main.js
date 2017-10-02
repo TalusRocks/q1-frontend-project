@@ -48,11 +48,11 @@ var render = {
     content.innerHTML = characters
     var total = document.querySelector('#total')
     total.textContent = teamCharacters.reduce(function (card) {
-
+      console.log(state.team.cards)
     })
   }
 }
 
-state.team.cards.push(state.pool.active.shift())
+//state.team.cards.push(state.pool.active.shift())
 render.active()
 render.team()
