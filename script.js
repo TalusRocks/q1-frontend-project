@@ -51,6 +51,11 @@ for (var char in hero) {
         thisCost.children[1].classList.add('yellow')
       }
 
+    // hide the first die value if zero
+      if(firstCost === 0) {
+        thisCost.firstChild.style.opacity = 0;
+      }
+
 
     }
 
@@ -60,68 +65,7 @@ for (var char in hero) {
 
 
 
-//RED
-// for ( var redHeroChar in hero.red ) {
-//   if(characterWrap) {
-//     //create the HTML containers
-//     let dupWrap = characterWrap.cloneNode(true);
-//     charactersContent.append(dupWrap);
-//
-//     //put in each character's details
-//     //use lastChild to access nodelist
-//     let thisChar = dupWrap.lastChild;
-//     let thisName = hero.red[redHeroChar].name;
-//     //add star to unique characters
-//     if (hero.red[redHeroChar].unique === true) {
-//       thisName = '<i class="fa fa-star mrg-right" aria-hidden="true"></i>' + thisName;
-//     }
-//     let thisHealth = hero.red[redHeroChar].health;
-//     thisChar.innerHTML = '<p class=" character-name mrg-left">' + thisName + '<span class="tiny mrg-left">' + redHeroChar + '</span></p>' + '<p class="health mrg-right">' + thisHealth + '</p>' ;
-//
-//     //put in each character's dice costs
-//     let thisCost = dupWrap.firstChild;
-//     let firstCost = hero.red[redHeroChar].cost[0];
-//     let secondCost = hero.red[redHeroChar].cost[1];
-//     thisCost.innerHTML = '<div class="cost red"><p class="cost-value">' + firstCost + '</p></div>' + '<div class="cost red"><p class="cost-value">' + secondCost + '</p></div>';
-//
-//     //hide the first die value if it is zero, for characters with only one die cost
-//     if(firstCost === 0) {
-//       thisCost.firstChild.style.opacity = 0;
-//     }
-//   }
-// }
 
-
-//BLUE
-// for ( var blueHeroChar in hero.blue ) {
-//   if(characterWrap) {
-//     //create the HTML containers
-//     let dupWrap = characterWrap.cloneNode(true);
-//     charactersContent.append(dupWrap);
-//
-//     //put in each character's name, health
-//     //use lastChild to access nodelist
-//     let thisChar = dupWrap.lastChild;
-//     let thisName = hero.blue[blueHeroChar].name;
-//     //add star to unique characters
-//     if (hero.red[redHeroChar].unique === true) {
-//       thisName = '<i class="fa fa-star mrg-right" aria-hidden="true"></i>' + thisName;
-//     }
-//     let thisHealth = hero.blue[blueHeroChar].health;
-//     thisChar.innerHTML = '<p class=" character-name mrg-left">' + thisName + '<span class="tiny mrg-left">' + blueHeroChar + '</span></p>' + '<p class="health mrg-right">' + thisHealth + '</p>' ;
-//
-//     //put in each character's dice costs
-//     let thisCost = dupWrap.firstChild;
-//     let firstCost = hero.blue[blueHeroChar].cost[0];
-//     let secondCost = hero.blue[blueHeroChar].cost[1];
-//     thisCost.innerHTML = '<div class="cost blue"><p class="cost-value">' + firstCost + '</p></div>' + '<div class="cost blue"><p class="cost-value">' + secondCost + '</p></div>';
-//
-//     //hide the first die value if it is zero, for characters with only one die cost
-//     if(firstCost === 0) {
-//       thisCost.firstChild.style.opacity = 0;
-//     }
-//   }
-// }
 
 
 //COST CALCULATIONS AND FILTERS
@@ -137,10 +81,7 @@ for (let i = 0; i < characterCost.length; i++) {
 
   //add event listener to each cost...
   let cost = characterCost[i]
-  cost.addEventListener('click', handleCost);
-
-  //fire this function on click
-  function handleCost(event) {
+  cost.addEventListener('click', function(event) {
     //get selected cost
     let selectedCost = cost.textContent.trim();
 
@@ -156,24 +97,24 @@ for (let i = 0; i < characterCost.length; i++) {
       total.textContent -= selectedCost;
     }
 
-    //if character is unique, prevent from adding twice
-    //need to check against current team?
-
-    //if too costly, remove event listener and add disabled class
+    //if too costly, add disabled class
     allCosts.forEach(function(element){
       if ((total.textContent - element.textContent) < 0) {
         element.parentElement.classList.add('disabled');
-        // element.parentElement.removeEventListener('click', handleCost);
       }
     });
 
-    //add selected character to team!
-    //find where to append it
+    //ADD CHARACTERS TO TEAM CONTENT
+    //grab the whole character-wrap to append
+    let selectedCharacter = this.parentElement.parentElement;
+    console.log(selectedCharacter);
 
-    //traversing the DOM... but doesn't select *CLICKED* element
-    let selectedCharacter = document.querySelectorAll('.character-wrap')
+    //this is where to append it
+    let teamContent = document.querySelector('#team-content');
 
-  };//close handleCost function
+    teamContent.append(selectedCharacter);
+
+  });//close function
 
 }//close for loop
 
