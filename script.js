@@ -93,7 +93,6 @@ for (let i = 0; i < characterCost.length; i++) {
     this.classList.add('disabled');
     this.style.border = '3px solid black';
     teamContent.append(selectedCharacter);
-    console.log(selectedCharacter)
 
     //if too many characters are selected, show an error msg
     if((total.textContent - selectedCost) < 0) {
@@ -108,7 +107,7 @@ for (let i = 0; i < characterCost.length; i++) {
     }
 
     //if character has been selected, also disable
-    //if character has same name, also disable 
+    //if character has same name, also disable
 
     //if too costly, add disabled class
     allCosts.forEach(function(element){

@@ -5,7 +5,8 @@ let hero = {
       cost : [16,20],
       health : 11,
       unique : true,
-      color: 'blue',
+      color : 'blue',
+      selected : false,
       guardian : true,
       ability : 'Before this character is defeated, you may play a Blue card from your hand or discard pile for free.',
       action : '',
@@ -55,21 +56,24 @@ let hero = {
       cost : [9, 12],
       health : 10,
       unique : true,
-      color: 'blue'
+      color: 'blue',
+      selected : false,
     },
     'Finding the Ways' : {
       name : 'Rey',
       cost : [12, 15],
       health : 11,
       unique : true,
-      color: 'blue'
+      color: 'blue',
+      selected : false,
     },
     'Jedi Acolyte' : {
       name : 'Jedi Acolyte',
       cost : [0, 9],
       health : 7,
       unique : false,
-      color: 'blue'
+      color: 'blue',
+      selected : false,
     }
   },
 
@@ -79,21 +83,24 @@ let hero = {
       cost : [0, 8],
       health : 7,
       unique : false,
-      color: 'red'
+      color: 'red',
+      selected : false,
     },
     'Born Leader' : {
       name : 'Leia Organa',
       cost : [12, 16],
       health : 11,
       unique : true,
-      color: 'red'
+      color: 'red',
+      selected : false,
     },
     'Perceptive Tactician' : {
       name : 'Admiral Ackbar',
       cost : [10, 14],
       health : 9,
       unique : true,
-      color: 'red'
+      color: 'red',
+      selected : false,
     }
   },
 
@@ -103,14 +110,16 @@ let hero = {
       cost : [7, 10],
       health : 7,
       unique : true,
-      color: 'yellow'
+      color: 'yellow',
+      selected : false,
     },
     'Galactic Entrepreneur' : {
       name : 'Lando Calrissian',
       cost : [13, 16],
       health : 11,
       unique : true,
-      color: 'yellow'
+      color: 'yellow',
+      selected : false,
     }
   }
 }
