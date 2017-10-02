@@ -85,6 +85,16 @@ for (let i = 0; i < characterCost.length; i++) {
     //get selected cost
     let selectedCost = cost.textContent.trim();
 
+    //ADD CHARACTERS TO TEAM CONTENT
+    //this is where to append it
+    let teamContent = document.querySelector('#team-content');
+    //this is the whole chracter-wrap to append
+    let selectedCharacter = this.parentElement.parentElement;
+    this.classList.add('disabled');
+    this.style.border = '3px solid black';
+    teamContent.append(selectedCharacter);
+    console.log(selectedCharacter)
+
     //if too many characters are selected, show an error msg
     if((total.textContent - selectedCost) < 0) {
       let alert = document.createElement('div');
@@ -97,22 +107,16 @@ for (let i = 0; i < characterCost.length; i++) {
       total.textContent -= selectedCost;
     }
 
+    //if character has been selected, also disable
+    //if character has same name, also disable 
+
     //if too costly, add disabled class
     allCosts.forEach(function(element){
       if ((total.textContent - element.textContent) < 0) {
         element.parentElement.classList.add('disabled');
       }
+      // console.log(teamContent.innerHTML.includes("Rey"))
     });
-
-    //ADD CHARACTERS TO TEAM CONTENT
-    //grab the whole character-wrap to append
-    let selectedCharacter = this.parentElement.parentElement;
-    console.log(selectedCharacter);
-
-    //this is where to append it
-    let teamContent = document.querySelector('#team-content');
-
-    teamContent.append(selectedCharacter);
 
   });//close function
 
