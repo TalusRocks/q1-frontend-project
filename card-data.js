@@ -5,6 +5,7 @@ let hero = {
       cost : [16,20],
       health : 11,
       unique : true,
+      color: 'blue',
       guardian : true,
       ability : 'Before this character is defeated, you may play a Blue card from your hand or discard pile for free.',
       action : '',
@@ -53,13 +54,22 @@ let hero = {
       name : 'Rey',
       cost : [9, 12],
       health : 10,
-      unique : true
+      unique : true,
+      color: 'blue'
     },
     'Finding the Ways' : {
       name : 'Rey',
       cost : [12, 15],
       health : 11,
-      unique : true
+      unique : true,
+      color: 'blue'
+    },
+    'Jedi Acolyte' : {
+      name : 'Jedi Acolyte',
+      cost : [0, 9],
+      health : 7,
+      unique : false,
+      color: 'blue'
     }
   },
 
@@ -68,19 +78,22 @@ let hero = {
       name : 'Rebel Trooper',
       cost : [0, 8],
       health : 7,
-      unique : false
+      unique : false,
+      color: 'red'
     },
     'Born Leader' : {
       name : 'Leia Organa',
       cost : [12, 16],
       health : 11,
-      unique : true
+      unique : true,
+      color: 'red'
     },
     'Perceptive Tactician' : {
       name : 'Admiral Ackbar',
       cost : [10, 14],
       health : 9,
-      unique : true
+      unique : true,
+      color: 'red'
     }
   },
 
@@ -89,13 +102,82 @@ let hero = {
       name : 'Ezra Bridger',
       cost : [7, 10],
       health : 7,
-      unique : true
+      unique : true,
+      color: 'yellow'
     },
     'Galactic Entrepreneur' : {
       name : 'Lando Calrissian',
       cost : [13, 16],
       health : 11,
-      unique : true
+      unique : true,
+      color: 'yellow'
+    }
+  }
+}
+
+let villain = {
+  blue : {
+    'Sith Lord' : {
+      name : 'Darth Vader',
+      cost : [16, 21],
+      health : 13,
+      unique : true,
+      color: 'blue'
+    },
+    'Dark Apprentice' : {
+      name : 'Darth Vader',
+      cost : [13, 17],
+      health : 11,
+      unique : true,
+      color: 'blue'
+    },
+    'Galactic Emperor' : {
+      name : 'Palpatine',
+      cost : [21, 28],
+      health : 15,
+      unique : true,
+      color: 'blue'
+    }
+  },
+
+  red : {
+    'First Order Stormtrooper' : {
+      name : 'First Order Stormtrooper',
+      cost : [0, 7],
+      health : 7,
+      unique : false,
+      color: 'red'
+    },
+    'Death Trooper' : {
+      name : 'Death Trooper',
+      cost : [0, 10],
+      health : 10,
+      unique : false,
+      color: 'red'
+    },
+    'Loyal Trooper' : {
+      name : 'FN-2199',
+      cost : [10, 13],
+      health : 11,
+      unique : true,
+      color: 'red'
+    }
+  },
+
+  yellow : {
+    'The Great and Mighty' : {
+      name : 'Jabba the Hutt',
+      cost : [11, 14],
+      health : 11,
+      unique : true,
+      color: 'yellow'
+    },
+    'Tusken Raider' : {
+      name : 'Tusken Raider',
+      cost : [0, 9],
+      health : 8,
+      unique : false,
+      color: 'yellow'
     }
   }
 }
