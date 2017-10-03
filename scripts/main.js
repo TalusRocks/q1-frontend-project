@@ -21,21 +21,26 @@ var render = {
     }
     content.innerHTML = characters
 
-    // hide the first die value if zero
-    let cost = document.querySelectorAll('.cost')
-    for (var j = 0; j < cost.length; j++) {
-      let costData = cost[j].textContent.trim()
-      if (costData == 0) {
-        cost[j].style.opacity = '0'
-        //should also disable click event 
-      }
-    }
-
-
     //get the cost (for targeting)
     var characterCost = document.querySelectorAll('.character-wrap .cost')
+
     for (var i = 0; i < characterCost.length; i++) {
-      characterCost[i].addEventListener('click', function (event) {
+      characterCost[i].addEventListener('click', clickCost)
+
+
+      //hide die of 0 cost
+      let costData = characterCost[i].textContent.trim()
+      if (costData == 0) {
+        characterCost[i].style.opacity = '0'
+        characterCost[i].removeEventListener('click', clickCost)
+        //?? when it moves to the Team, the zero comes back, because the Team function can't find characterCost[i]
+        // let temp = characterCost[i].cloneNode(true);
+        // console.log(temp)
+        // characterCost[i].parentNode.replaceChild(temp, characterCost[i]);
+      }
+
+
+      function clickCost(event) {
         //make both the div and inner p targets for cost
         var cost = event.target
         if (cost.nodeName == 'P') cost = cost.parentElement
@@ -55,7 +60,7 @@ var render = {
         render.total()
         render.team()
         render.disabled()
-      })
+      }
     }
   },
   disabled: function () {
