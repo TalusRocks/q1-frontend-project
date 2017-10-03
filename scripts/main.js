@@ -21,6 +21,17 @@ var render = {
     }
     content.innerHTML = characters
 
+    // hide the first die value if zero
+    let cost = document.querySelectorAll('.cost')
+    for (var j = 0; j < cost.length; j++) {
+      let costData = cost[j].textContent.trim()
+      if (costData == 0) {
+        cost[j].style.opacity = '0'
+        //should also disable click event 
+      }
+    }
+
+
     //get the cost (for targeting)
     var characterCost = document.querySelectorAll('.character-wrap .cost')
     for (var i = 0; i < characterCost.length; i++) {
@@ -34,35 +45,16 @@ var render = {
         var dieCount = cost.getAttribute('data-die')
         var card = state.pool.active.splice(idx, 1)[0]
 
-        console.log('die count', dieCount);
         //add the selected card to the 'team'
         state.team.cards.push(card)
+        //change selected die to true
         card.cost[dieCount].selected = true
-
-        //find clicked die and change data to selected????
-        //current idea: grab the html, and see if it matches one of the object's point values, and if so, change the selected to true. Seems longwinded tho.
-        // let teamSize = state.team.cards.length - 1
-        // let pointObj = state.team.cards[teamSize].cost
-        // console.log(pointObj[1].selected, "before")
-        // //console.log(state.team.cards[teamSize].cost[0].selected)
-        // let pointText = event.target.textContent.trim()
-        // for(var pt in pointObj) {
-        //   // console.log(pt, "pt")
-        //   // console.log(pointObj, "pointObj")
-        //   // console.log(pointObj[pt], "pointObj[pt]")
-        //   // console.log(pointObj[pt].point, "pointObj[pt].point")
-        //   // console.log(pointText, "pointText")
-        //   if (pointObj[pt].point == pointText) {
-        //     pointObj[pt].selected = true
-        //   }
-        // }
-        // console.log(pointObj, "after")
 
         //re-render
         render.active()
-        render.disabled()
         render.total()
         render.team()
+        render.disabled()
       })
     }
   },
@@ -88,10 +80,9 @@ var render = {
       characters += characterWrap(teamCharacters[i])
     }
     content.innerHTML = characters
-    var total = document.querySelector('#total')
-    //how do I know WHICH point was clicked on?
-    //have to set selected to true earlier...
-    console.log(state.team.cards)
+    //var total = document.querySelector('#total')
+
+    //console.log(state.team.cards)
     // total.textContent = teamCharacters.reduce(function (card) {
     //
     // })
@@ -100,14 +91,9 @@ var render = {
 
     //fetch cost VALUE
     let thisCost = event.target.textContent.trim()
-    //..but how to grab the DATA??
-    //console.log(event.target.parentNode)
-    //maybe set selected die to "selected"...??
-    //state.team.cards[0].cost[0].selected = true
-    //subtract from max and display
+    //console.log(state.team.cards)
+
     let totalCost = document.querySelector('#total')
-    //totalCost.textContent -= thisCost
-    //why is the max stored in the data structure?
 
     //if too many characters are selected, show an error msg
     if((total.textContent - thisCost) < 0) {
@@ -120,7 +106,6 @@ var render = {
       //subtract selected from total
       total.textContent -= thisCost;
       state.team.max = total.textContent;
-      //console.log(state.team.max)
     }
 
   }
