@@ -2,10 +2,10 @@ function characterWrap (character, idx) {
   return `
     <div class="character-wrap">
       <div class="cost-wrap">
-        <div class="cost ${character.color}" data-idx="${idx}">
+        <div class="cost ${character.color}" data-idx="${idx}" data-die="0">
           <p class="cost-value">${character.cost[0].point}</p>
         </div>
-        <div class="cost ${character.color}" data-idx="${idx}">
+        <div class="cost ${character.color}" data-idx="${idx}" data-die="1">
           <p class="cost-value">${character.cost[1].point}</p>
         </div>
       </div>
