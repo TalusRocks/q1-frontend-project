@@ -5,6 +5,7 @@ let heroes = [{
   health: 11,
   unique: true,
   color: 'blue',
+  selected: false,
   guardian: true,
   ability: 'Before this character is defeated, you may play a Blue card from your hand or discard pile for free.',
   action: '',
