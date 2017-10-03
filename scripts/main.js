@@ -82,12 +82,14 @@ var render = {
     content.innerHTML = ''
     var characters = ''
     for (var i = 0; i < teamCharacters.length; i++) {
-      characters += characterWrap(teamCharacters[i])
+      characters += characterWrap(teamCharacters[i], i, 'team')
+
     }
     content.innerHTML = characters
-    //var total = document.querySelector('#total')
 
-    //console.log(state.team.cards)
+    document.querySelectorAll('a.remove-link')
+
+    //var total = document.querySelector('#total')
     // total.textContent = teamCharacters.reduce(function (card) {
     //
     // })

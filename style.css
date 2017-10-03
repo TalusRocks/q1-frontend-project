@@ -139,6 +139,10 @@ body {
   opacity: 0.5;
 }
 
+.hidden {
+  opacity: 0;
+}
+
 .character {
   background-color: #EDECEC;
   width: 100%;
