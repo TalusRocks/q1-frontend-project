@@ -1,7 +1,7 @@
 function characterWrap (character, idx, location) {
   var hasRemoveMe = location === 'team'
   return `
-    <div class="character-wrap">
+    <div class="character-wrap" data-idx="${idx}">
       <div class="cost-wrap">
         <div class="cost
         ${character.color}
@@ -22,7 +22,7 @@ function characterWrap (character, idx, location) {
           <span class="tiny mrg-left">${character.subtitle}</span>
         </p>
         <br>
-        ${hasRemoveMe ? '<a class="remove-me" href="#">remove me</a>' : ''}
+        ${hasRemoveMe ? '<a href="#" class="remove-me">remove me</a>' : ''}
         <p class="health mrg-right">${character.health}</p>
       </div>
     </div>

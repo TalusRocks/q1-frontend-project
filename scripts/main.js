@@ -1,12 +1,13 @@
-var lando = heroes.pop()
-lando.cost[0].selected = true
+//var lando = heroes.pop()
+//lando.cost[0].selected = true
 var state = {
   pool: {
     active: heroes,
     disabled: []
   },
   team: {
-    cards: [lando]
+    cards: [],
+    max: 30
   }
 }
 
@@ -16,6 +17,15 @@ var render = {
     var content = document.querySelector('.characters-content')
     content.innerHTML = ''
     var characters = ''
+
+    activeCharacters.sort(function (charA, charB) {
+      return charA.name > charB.name
+    }).sort(function (charA, charB) {
+      return charA.subtitle > charB.subtitle
+    }).sort(function (charA, charB) {
+      return charA.color > charB.color
+    })
+
     for (var i = 0; i < activeCharacters.length; i++) {
       characters += characterWrap(activeCharacters[i], i)
     }
@@ -60,6 +70,7 @@ var render = {
         render.total()
         render.team()
         render.disabled()
+
       }
     }
   },
@@ -87,19 +98,42 @@ var render = {
     }
     content.innerHTML = characters
 
-    document.querySelectorAll('a.remove-link')
+    //remove character from team and add back to pool via link
+    let removeMe = document.querySelectorAll('a.remove-me')
 
-    //var total = document.querySelector('#total')
-    // total.textContent = teamCharacters.reduce(function (card) {
-    //
-    // })
+    for (var j = 0; j < removeMe.length; j++) {
+      removeMe[j].addEventListener('click', function (event) {
+
+        // console.log(event.target.getAttribute('data-rmv'))
+        let removeChar = event.target.parentElement.parentElement
+        let teamPosition = removeChar.getAttribute('data-idx')
+
+        //splice out of state.team.cards
+        var card = state.team.cards.splice(teamPosition, 1)[0]
+
+        console.log(card)
+
+        //change things, like selected cost to false for both
+        card.cost[0].selected = false
+        card.cost[1].selected = false
+
+        //push onto state.pool.active
+        state.pool.active.push(card)
+
+      render.team()
+      render.active()
+      render.total()
+      })
+
+    }
+
   },
   total: function () {
 
     //fetch cost VALUE
     let thisCost = event.target.textContent.trim()
-    //console.log(state.team.cards)
 
+    let max = state.team.max
     let totalCost = document.querySelector('#total')
 
     //if too many characters are selected, show an error msg
