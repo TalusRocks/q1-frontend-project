@@ -75,6 +75,14 @@ let heroes = [{
   color: 'blue'
 },
 {
+  name: 'Qui-Gon Jinn',
+  subtitle: 'Artaru Master',
+  cost: [ { point: 13, selected: false}, { point: 17, selected: false }],
+  health: 11,
+  unique: true,
+  color: 'blue'
+},
+{
   name: 'Rebel Trooper',
   subtitle: 'Rebel Trooper',
   cost: [ { point: 0, selected: false}, { point: 8, selected: false }],
@@ -102,7 +110,16 @@ let heroes = [{
   health: 7,
   unique: true,
   color: 'yellow'
-}, {
+},
+// {
+//   name: 'Maz Kanata',
+//   subtitle: 'Pirate Queen',
+//   cost: [ { point: 8, selected: false}, { point: 11, selected: false }],
+//   health: 8,
+//   unique: true,
+//   color: 'yellow'
+// },
+{
   name: 'Lando Calrissian',
   subtitle: 'Galactic Entrepreneur',
   cost: [ { point: 13, selected: false}, { point: 16, selected: false }],

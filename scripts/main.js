@@ -9,7 +9,8 @@ var state = {
     cards: [],
     //max: 30,
     total: 30
-  }
+  },
+  hidden: []
 }
 
 var render = {
@@ -67,38 +68,9 @@ var render = {
         render.team()
         render.total()
         render.disabled()
-        render.colorFilter()
+        filter.colorFilter()
       }
     }
-  },
-  colorFilter: function () {
-    //get ea filter class
-    let blueToggle = document.querySelector('.blue-toggle')
-    let redToggle = document.querySelector('.red-toggle')
-    let yellowToggle = document.querySelector('.yellow-toggle')
-    //get the classes of active characters, for hiding
-    let blueCharacters = document.querySelectorAll('.character-wrap .blue')
-    let redCharacters = document.querySelectorAll('.character-wrap .red')
-    let yellowCharacters = document.querySelectorAll('.character-wrap .yellow')
-
-
-
-    blueToggle.addEventListener('click', function() {
-
-      for (let i = 0; i < blueCharacters.length; i++) {
-        let char = blueCharacters[i].parentElement.parentElement
-
-        if (char.style.display = 'flex') {
-          char.style.display = 'none'
-        } else {
-          char.style.display = 'flex'
-        }
-      }
-
-    })
-
-
-
   },
   disabled: function () {
 
@@ -189,4 +161,4 @@ var render = {
 render.active()
 render.team()
 render.total()
-render.colorFilter()
+filter.colorFilter()
