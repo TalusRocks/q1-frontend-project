@@ -7,7 +7,8 @@ var state = {
   },
   team: {
     cards: [],
-    max: 30
+    //max: 30,
+    total: 30
   }
 }
 
@@ -37,18 +38,12 @@ var render = {
     for (var i = 0; i < characterCost.length; i++) {
       characterCost[i].addEventListener('click', clickCost)
 
-
       //hide die of 0 cost
       let costData = characterCost[i].textContent.trim()
       if (costData == 0) {
         characterCost[i].style.opacity = '0'
         characterCost[i].removeEventListener('click', clickCost)
-        //?? when it moves to the Team, the zero comes back, because the Team function can't find characterCost[i]
-        // let temp = characterCost[i].cloneNode(true);
-        // console.log(temp)
-        // characterCost[i].parentNode.replaceChild(temp, characterCost[i]);
       }
-
 
       function clickCost(event) {
         //make both the div and inner p targets for cost
@@ -67,10 +62,9 @@ var render = {
 
         //re-render
         render.active()
-        render.total()
         render.team()
+        render.total()
         render.disabled()
-
       }
     }
   },
@@ -104,14 +98,11 @@ var render = {
     for (var j = 0; j < removeMe.length; j++) {
       removeMe[j].addEventListener('click', function (event) {
 
-        // console.log(event.target.getAttribute('data-rmv'))
         let removeChar = event.target.parentElement.parentElement
         let teamPosition = removeChar.getAttribute('data-idx')
 
         //splice out of state.team.cards
         var card = state.team.cards.splice(teamPosition, 1)[0]
-
-        console.log(card)
 
         //change things, like selected cost to false for both
         card.cost[0].selected = false
@@ -130,27 +121,48 @@ var render = {
   },
   total: function () {
 
-    //fetch cost VALUE
-    let thisCost = event.target.textContent.trim()
+    //let max = state.team.max
+    let total = state.team.total
+    let displayTotal = document.querySelector('#total')
+    displayTotal.append(total)
 
-    let max = state.team.max
-    let totalCost = document.querySelector('#total')
+    //get selected values from characters in location team, sub from total
 
-    //if too many characters are selected, show an error msg
-    if((total.textContent - thisCost) < 0) {
-      let alert = document.createElement('div');
-      alert.innerHTML = "too many points";
-      alert.className = "alert";
-      let teamCount = document.querySelector('.team-count');
-      teamCount.append(alert);
-    } else {
-      //subtract selected from total
-      total.textContent -= thisCost;
-      state.team.max = total.textContent;
+
+    let teamSize = state.team.cards.length
+    for (var i = 0; i < teamSize; i++) {
+      let char = state.team.cards[i]
+      for (var j = 0; j < 2; j++) {
+        if(char.cost[j].selected) {
+          total -= char.cost[j].point
+        }
+      }
     }
+    displayTotal.textContent = total
+    
+    console.log(total)
+    // //fetch cost VALUE
+    // let thisCost = event.target.textContent.trim()
+    //
+    // let max = state.team.max
+    // let totalCost = document.querySelector('#total')
+    //
+    // //if too many characters are selected, show an error msg
+    // if((total.textContent - thisCost) < 0) {
+    //   let alert = document.createElement('div');
+    //   alert.innerHTML = "too many points";
+    //   alert.className = "alert";
+    //   let teamCount = document.querySelector('.team-count');
+    //   teamCount.append(alert);
+    // } else {
+    //   //subtract selected from total
+    //   total.textContent -= thisCost;
+    //   state.team.max = total.textContent;
+    // }
 
   }
 }
 
 render.active()
 render.team()
+render.total()
