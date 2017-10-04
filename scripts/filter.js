@@ -26,7 +26,7 @@ var filter = {
           show = false
         }
       } //close k loop
-      console.log(show)
+
       if (show === true) {
         //splice blue from heroes(active), push into hidden
         for (let i = 0; i < heroes.length; i++) {
@@ -37,6 +37,8 @@ var filter = {
           }
         }
 
+        //turn toggle button to toggle-on
+        blueToggle.classList.add('blue-toggle-on')
       } else {
         //splice blue from hidden, push into heroes(active)
         for (let j = 0; j < state.hidden.length; j++) {
@@ -47,8 +49,9 @@ var filter = {
           }
         }
 
+        //remove toggle-on from toggle
+        blueToggle.classList.remove('blue-toggle-on')
       }
-
 
       render.active()
     }) //close event listener
