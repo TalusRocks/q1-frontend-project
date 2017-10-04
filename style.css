@@ -33,6 +33,25 @@ p {
   font-size: 1.2em;
 }
 
+.fa-times {
+  font-size: 1.5em;
+  height: 52px;
+  padding-left: .5em;
+  padding-right: .5em;
+  display: flex;
+  align-items: center;
+  background-color: #dadada;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+a:hover {
+  color: red;
+}
+
 body {
   margin: 0.5em;
 }
@@ -80,10 +99,47 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
   font-weight: 900;
   position: relative;
 }
+
+.blue-toggle, .red-toggle, .yellow-toggle {
+  cursor: pointer;
+}
+
+.blue-toggle {
+  color: #fff;
+  background-color: #3272BD;
+}
+
+.blue-toggle-off {
+  color: #3272BD;
+  background-color: #fff;
+  border: 4px solid #3272BD;
+}
+
+.red-toggle {
+  color: #fff;
+  background-color: #BB091F;
+}
+
+.red-toggle-off {
+  color: #BB091F;
+  background-color: #fff;
+  border: 4px solid #BB091F;
+}
+
+.yellow-toggle {
+  color: #fff;
+  background-color: #F0BC11;
+}
+
+.yellow-toggle-off {
+  color: #F0BC11;
+  background-color: #fff;
+  border: 4px solid #F0BC11;
+}
+
 
 /*----- CHARACTERS -----*/
 .character-wrap {
@@ -137,6 +193,14 @@ body {
 
 .disabled {
   opacity: 0.5;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.none {
+  display: none;
 }
 
 .character {
