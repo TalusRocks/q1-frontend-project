@@ -110,16 +110,14 @@ let heroes = [{
   health: 7,
   unique: true,
   color: 'yellow'
-},
-// {
-//   name: 'Maz Kanata',
-//   subtitle: 'Pirate Queen',
-//   cost: [ { point: 8, selected: false}, { point: 11, selected: false }],
-//   health: 8,
-//   unique: true,
-//   color: 'yellow'
-// },
-{
+}, {
+  name: 'Maz Kanata',
+  subtitle: 'Pirate Queen',
+  cost: [ { point: 8, selected: false}, { point: 11, selected: false }],
+  health: 8,
+  unique: true,
+  color: 'yellow'
+}, {
   name: 'Lando Calrissian',
   subtitle: 'Galactic Entrepreneur',
   cost: [ { point: 13, selected: false}, { point: 16, selected: false }],

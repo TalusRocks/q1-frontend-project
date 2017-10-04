@@ -1,5 +1,3 @@
-//var lando = heroes.pop()
-//lando.cost[0].selected = true
 var state = {
   pool: {
     active: heroes,
@@ -13,20 +11,44 @@ var state = {
   hidden: []
 }
 
+//moves characters to the team, and selects clicked die
+function clickCost(event) {
+  //make both the div and inner p targets for cost
+  var cost = event.target
+  if (cost.nodeName == 'P') cost = cost.parentElement
+
+  //fetch index in data, and grab the card
+  var idx = cost.getAttribute('data-idx')
+  var dieCount = cost.getAttribute('data-die')
+  var card = state.pool.active.splice(idx, 1)[0]
+
+  //add the selected card to the 'team'
+  state.team.cards.push(card)
+  //change selected die to true
+  card.cost[dieCount].selected = true
+
+  //re-render
+  render.active()
+  render.team()
+  render.total()
+  render.disabled()
+  filter.colorFilter()
+}
+
 var render = {
+  //renders characters in state.pool.active
   active: function () {
     var activeCharacters = state.pool.active
     var content = document.querySelector('.characters-content')
     content.innerHTML = ''
     var characters = ''
 
-    //re-sort active characters for each render
+    //sort active characters for each render
     activeCharacters.sort(function (charA, charB) {
-      return charA.name > charB.name
-    }).sort(function (charA, charB) {
-      return charA.subtitle > charB.subtitle
-    }).sort(function (charA, charB) {
-      return charA.color > charB.color
+      var subtitle = charA.subtitle.toLowerCase() > charB.subtitle.toLowerCase()
+      var name = charA.name.toLowerCase() > charB.name.toLowerCase()
+      var color = charA.color.toLowerCase() > charB.color.toLowerCase()
+      return (color && name) ? 1 : -1
     })
 
     //populate HTML with current active characters
@@ -38,6 +60,7 @@ var render = {
     //get the cost (for targeting)
     var characterCost = document.querySelectorAll('.character-wrap .cost')
 
+    //event listener for each die cost
     for (var i = 0; i < characterCost.length; i++) {
       characterCost[i].addEventListener('click', clickCost)
 
@@ -48,30 +71,9 @@ var render = {
         characterCost[i].removeEventListener('click', clickCost)
       }
 
-      function clickCost(event) {
-        //make both the div and inner p targets for cost
-        var cost = event.target
-        if (cost.nodeName == 'P') cost = cost.parentElement
-
-        //fetch index in data, and grab the card
-        var idx = cost.getAttribute('data-idx')
-        var dieCount = cost.getAttribute('data-die')
-        var card = state.pool.active.splice(idx, 1)[0]
-
-        //add the selected card to the 'team'
-        state.team.cards.push(card)
-        //change selected die to true
-        card.cost[dieCount].selected = true
-
-        //re-render
-        render.active()
-        render.team()
-        render.total()
-        render.disabled()
-        filter.colorFilter()
-      }
     }
   },
+  //looks at all dice in characters, adds disabled class to dice too expensive
   disabled: function () {
 
     //get all the costs (for filtering)
@@ -85,6 +87,7 @@ var render = {
     })
 
   },
+  //renders the team
   team: function () {
     var teamCharacters = state.team.cards
     var content = document.querySelector('#team-content')
@@ -123,6 +126,7 @@ var render = {
     }
 
   },
+  //renders the total team cost 
   total: function () {
 
     //let max = state.team.max
