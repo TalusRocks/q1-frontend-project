@@ -33,6 +33,25 @@ p {
   font-size: 1.2em;
 }
 
+.fa-times {
+  font-size: 1.5em;
+  height: 52px;
+  padding-left: .5em;
+  padding-right: .5em;
+  display: flex;
+  align-items: center;
+  background-color: #dadada;
+}
+
+a {
+  text-decoration: none;
+  color: #800080;
+}
+
+a:hover {
+  color: #be07be;
+}
+
 body {
   margin: 0.5em;
 }
@@ -141,6 +160,10 @@ body {
 
 .hidden {
   opacity: 0;
+}
+
+.none {
+  display: none;
 }
 
 .character {

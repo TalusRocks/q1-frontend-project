@@ -19,6 +19,7 @@ var render = {
     content.innerHTML = ''
     var characters = ''
 
+    //re-sort active characters for each render
     activeCharacters.sort(function (charA, charB) {
       return charA.name > charB.name
     }).sort(function (charA, charB) {
@@ -27,6 +28,7 @@ var render = {
       return charA.color > charB.color
     })
 
+    //populate HTML with current active characters
     for (var i = 0; i < activeCharacters.length; i++) {
       characters += characterWrap(activeCharacters[i], i)
     }
@@ -65,8 +67,38 @@ var render = {
         render.team()
         render.total()
         render.disabled()
+        render.colorFilter()
       }
     }
+  },
+  colorFilter: function () {
+    //get ea filter class
+    let blueToggle = document.querySelector('.blue-toggle')
+    let redToggle = document.querySelector('.red-toggle')
+    let yellowToggle = document.querySelector('.yellow-toggle')
+    //get the classes of active characters, for hiding
+    let blueCharacters = document.querySelectorAll('.character-wrap .blue')
+    let redCharacters = document.querySelectorAll('.character-wrap .red')
+    let yellowCharacters = document.querySelectorAll('.character-wrap .yellow')
+
+
+
+    blueToggle.addEventListener('click', function() {
+
+      for (let i = 0; i < blueCharacters.length; i++) {
+        let char = blueCharacters[i].parentElement.parentElement
+
+        if (char.style.display = 'flex') {
+          char.style.display = 'none'
+        } else {
+          char.style.display = 'flex'
+        }
+      }
+
+    })
+
+
+
   },
   disabled: function () {
 
@@ -126,9 +158,7 @@ var render = {
     let displayTotal = document.querySelector('#total')
     displayTotal.append(total)
 
-    //get selected values from characters in location team, sub from total
-
-
+    //get selected values from characters in team, subtract from total
     let teamSize = state.team.cards.length
     for (var i = 0; i < teamSize; i++) {
       let char = state.team.cards[i]
@@ -139,30 +169,24 @@ var render = {
       }
     }
     displayTotal.textContent = total
-    
-    console.log(total)
-    // //fetch cost VALUE
-    // let thisCost = event.target.textContent.trim()
-    //
-    // let max = state.team.max
-    // let totalCost = document.querySelector('#total')
-    //
-    // //if too many characters are selected, show an error msg
-    // if((total.textContent - thisCost) < 0) {
-    //   let alert = document.createElement('div');
-    //   alert.innerHTML = "too many points";
-    //   alert.className = "alert";
-    //   let teamCount = document.querySelector('.team-count');
-    //   teamCount.append(alert);
-    // } else {
+
+    //if too many characters are selected, show an error msg
+    if((total) < 0) {
+      let alert = document.createElement('div');
+      alert.innerHTML = "too many points";
+      alert.className = "alert";
+      let teamCount = document.querySelector('.team-count');
+      teamCount.append(alert);
+    }
+    // else {
     //   //subtract selected from total
     //   total.textContent -= thisCost;
     //   state.team.max = total.textContent;
     // }
-
   }
 }
 
 render.active()
 render.team()
 render.total()
+render.colorFilter()

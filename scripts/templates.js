@@ -22,8 +22,8 @@ function characterWrap (character, idx, location) {
           <span class="tiny mrg-left">${character.subtitle}</span>
         </p>
         <br>
-        ${hasRemoveMe ? '<a href="#" class="remove-me">remove me</a>' : ''}
         <p class="health mrg-right">${character.health}</p>
+        ${hasRemoveMe ? '<a href="#" class="remove-me"><i class="fa fa-times"></i></a>' : ''}
       </div>
     </div>
   `
