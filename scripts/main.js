@@ -43,12 +43,32 @@ var render = {
     content.innerHTML = ''
     var characters = ''
 
-    //sort active characters for each render
-    activeCharacters.sort(function (charA, charB) {
-      var subtitle = charA.subtitle.toLowerCase() > charB.subtitle.toLowerCase()
-      var name = charA.name.toLowerCase() > charB.name.toLowerCase()
-      var color = charA.color.toLowerCase() > charB.color.toLowerCase()
-      return (color && name) ? 1 : -1
+  //  sort by name
+    // activeCharacters.sort(function (a, b) {
+    //   var nameA = a.name.toUpperCase()
+    //   var nameB = b.name.toUpperCase()
+    //   if (nameA < nameB) {
+    //     return -1
+    //   }
+    //   if (nameA > nameB) {
+    //     return 1
+    //   }
+    //
+    //   return 0
+    // })
+
+    //sort by color
+    activeCharacters.sort(function (a, b) {
+      var colorA = a.color.toUpperCase()
+      var colorB = b.color.toUpperCase()
+      if (colorA < colorB) {
+        return -1
+      }
+      if (colorA > colorB) {
+        return 1
+      }
+
+      return 0
     })
 
     //populate HTML with current active characters
@@ -126,7 +146,7 @@ var render = {
     }
 
   },
-  //renders the total team cost 
+  //renders the total team cost
   total: function () {
 
     //let max = state.team.max
