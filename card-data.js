@@ -5,7 +5,7 @@ let heroes = [{
   health: 11,
   unique: true,
   color: 'blue',
-  selected: false,
+  side: 'hero',
   guardian: true,
   ability: 'Before this character is defeated, you may play a Blue card from your hand or discard pile for free.',
   action: '',
@@ -56,7 +56,8 @@ let heroes = [{
   cost: [ { point: 9, selected: false}, { point: 12, selected: false }],
   health: 10,
   unique: true,
-  color: 'blue'
+  color: 'blue',
+  side: 'hero'
 },
 {
   name: 'Rey',
@@ -64,7 +65,8 @@ let heroes = [{
   cost: [ { point: 12, selected: false}, { point: 15, selected: false }],
   health: 11,
   unique: true,
-  color: 'blue'
+  color: 'blue',
+  side: 'hero'
 },
 {
   name: 'Jedi Acolyte',
@@ -72,7 +74,8 @@ let heroes = [{
   cost: [ { point: 0, selected: false}, { point: 9, selected: false }],
   health: 7,
   unique: false,
-  color: 'blue'
+  color: 'blue',
+  side: 'hero'
 },
 {
   name: 'Qui-Gon Jinn',
@@ -80,7 +83,8 @@ let heroes = [{
   cost: [ { point: 13, selected: false}, { point: 17, selected: false }],
   health: 11,
   unique: true,
-  color: 'blue'
+  color: 'blue',
+  side: 'hero'
 },
 {
   name: 'Rebel Trooper',
@@ -88,107 +92,122 @@ let heroes = [{
   cost: [ { point: 0, selected: false}, { point: 8, selected: false }],
   health: 7,
   unique: false,
-  color: 'red'
+  color: 'red',
+  side: 'hero'
 }, {
   name: 'Leia Organa',
   subtitle: 'Born Leader',
   cost: [ { point: 12, selected: false}, { point: 16, selected: false }],
   health: 11,
   unique: true,
-  color: 'red'
+  color: 'red',
+  side: 'hero'
 }, {
   name: 'Admiral Ackbar',
   subtitle: 'Perceptive Tactician',
   cost: [ { point: 10, selected: false}, { point: 14, selected: false }],
   health: 9,
   unique: true,
-  color: 'red'
+  color: 'red',
+  side: 'hero'
 }, {
   name: 'Ezra Bridger',
   subtitle: 'Force-Sensitive Thief',
   cost: [ { point: 7, selected: false}, { point: 10, selected: false }],
   health: 7,
   unique: true,
-  color: 'yellow'
+  color: 'yellow',
+  side: 'hero'
 }, {
   name: 'Maz Kanata',
   subtitle: 'Pirate Queen',
   cost: [ { point: 8, selected: false}, { point: 11, selected: false }],
   health: 8,
   unique: true,
-  color: 'yellow'
+  color: 'yellow',
+  side: 'hero'
 }, {
   name: 'Lando Calrissian',
   subtitle: 'Galactic Entrepreneur',
   cost: [ { point: 13, selected: false}, { point: 16, selected: false }],
   health: 11,
   unique: true,
-  color: 'yellow'
+  color: 'yellow',
+  side: 'hero'
 }]
-
-let villains = [
-    {
-      name: 'Darth Vader',
-      subtitle: 'Sith Lord',
-      cost: [ { point: 16, selected: false}, { point: 21, selected: false }],
-      health: 13,
-      unique: true,
-      color: 'blue'
-    },
-    {
-      name: 'Darth Vader',
-      subtitle: 'Dark Apprentice',
-      cost: [ { point: 13, selected: false}, { point: 17, selected: false }],
-      health: 11,
-      unique: true,
-      color: 'blue'
-    },
-    {
-      name: 'Palpatine',
-      subtitle: 'Galactic Emperor',
-      cost: [ { point: 21, selected: false}, { point: 28, selected: false }],
-      health: 15,
-      unique: true,
-      color: 'blue'
-    },
-    {
-      name: 'First Order Stormtrooper',
-      subtitle: 'First Order Stormtrooper',
-      cost: [ { point: 0, selected: false}, { point: 7, selected: false }],
-      health: 7,
-      unique: false,
-      color: 'red'
-    },
-    {
-      name: 'Death Trooper',
-      subtitle: 'Death Trooper',
-      cost: [ { point: 0, selected: false}, { point: 10, selected: false }],
-      health: 10,
-      unique: false,
-      color: 'red'
-    },
-    {
-      name: 'FN-2199',
-      subtitle: 'Loyal Trooper',
-      cost: [ { point: 10, selected: false}, { point: 13, selected: false }],
-      health: 11,
-      unique: true,
-      color: 'red'
-    },
-    {
-      name: 'Jabba the Hutt',
-      subtitle: 'The Great and Mighty',
-      cost: [ { point: 11, selected: false}, { point: 14, selected: false }],
-      health: 11,
-      unique: true,
-      color: 'yellow'
-    },
-    {
-      name: 'Tusken Raider',
-      subtitle: 'Tusken Raider',
-      cost: [ { point: 0, selected: false}, { point: 9, selected: false }],
-      health: 8,
-      unique: false,
-      color: 'yellow'
-    }
-]
+//
+// let villains = [
+//     {
+//       name: 'Darth Vader',
+//       subtitle: 'Sith Lord',
+//       cost: [ { point: 16, selected: false}, { point: 21, selected: false }],
+//       health: 13,
+//       unique: true,
+//       color: 'blue',
+//       side: 'villain'
+//     },
+//     {
+//       name: 'Darth Vader',
+//       subtitle: 'Dark Apprentice',
+//       cost: [ { point: 13, selected: false}, { point: 17, selected: false }],
+//       health: 11,
+//       unique: true,
+//       color: 'blue',
+//       side: 'villain'
+//     },
+//     {
+//       name: 'Palpatine',
+//       subtitle: 'Galactic Emperor',
+//       cost: [ { point: 21, selected: false}, { point: 28, selected: false }],
+//       health: 15,
+//       unique: true,
+//       color: 'blue',
+//       side: 'villain'
+//     },
+//     {
+//       name: 'First Order Stormtrooper',
+//       subtitle: 'First Order Stormtrooper',
+//       cost: [ { point: 0, selected: false}, { point: 7, selected: false }],
+//       health: 7,
+//       unique: false,
+//       color: 'red',
+//       side: 'villain'
+//     },
+//     {
+//       name: 'Death Trooper',
+//       subtitle: 'Death Trooper',
+//       cost: [ { point: 0, selected: false}, { point: 10, selected: false }],
+//       health: 10,
+//       unique: false,
+//       color: 'red',
+//       side: 'villain'
+//     },
+//     {
+//       name: 'FN-2199',
+//       subtitle: 'Loyal Trooper',
+//       cost: [ { point: 10, selected: false}, { point: 13, selected: false }],
+//       health: 11,
+//       unique: true,
+//       color: 'red',
+//       side: 'villain'
+//     },
+//     {
+//       name: 'Jabba the Hutt',
+//       subtitle: 'The Great and Mighty',
+//       cost: [ { point: 11, selected: false}, { point: 14, selected: false }],
+//       health: 11,
+//       unique: true,
+//       color: 'yellow',
+//       side: 'villain'
+//
+//     },
+//     {
+//       name: 'Tusken Raider',
+//       subtitle: 'Tusken Raider',
+//       cost: [ { point: 0, selected: false}, { point: 9, selected: false }],
+//       health: 8,
+//       unique: false,
+//       color: 'yellow',
+//       side: 'villain'
+//     }
+// ]

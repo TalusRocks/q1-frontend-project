@@ -86,13 +86,13 @@ body {
 }
 
 /*----- FILTERS -----*/
-.color-filter {
+.color-filter, .side-filter {
   display: flex;
   font-size: 1.6em;
   width: 100%;
 }
 
-.color-filter > div {
+.color-filter > div, .side-filter > div {
   width: 33.33%;
   text-align: center;
   height: 52px;
@@ -101,6 +101,26 @@ body {
   align-items: center;
   font-weight: 900;
   position: relative;
+}
+
+.side-filter > div {
+  width: 50%;
+}
+
+.hero-toggle {
+  background-color: #EDECEC;
+}
+
+.villain-toggle {
+  background-color: #dadada;
+}
+
+.hero-toggle-off {
+  border: 4px solid #000;
+}
+
+.villain-toggle-off {
+  border: 4px solid #000;
 }
 
 .blue-toggle, .red-toggle, .yellow-toggle {

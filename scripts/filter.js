@@ -127,6 +127,13 @@ var filter = {
       render.active()
     })
 
-  }//close colorFilter
+  }
+  // ,
+  // sideFilter: function () {
+  //   //get ea filter class
+  //   let heroToggle = document.querySelector('.hero-toggle')
+  //   let villainToggle = document.querySelector('.villain-toggle')
+  //
+  // }
 
 }//close filter

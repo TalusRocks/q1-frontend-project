@@ -1,6 +1,7 @@
 var state = {
   pool: {
-    active: [heroes, villains],
+    active: heroes,
+    //[heroes, villains],
     disabled: []
   },
   team: {
@@ -20,6 +21,7 @@ function clickCost(event) {
   //fetch index in data, and grab the card
   var idx = cost.getAttribute('data-idx')
   var dieCount = cost.getAttribute('data-die')
+  //active[0] or active[1], depending on if heroes or villains
   var card = state.pool.active.splice(idx, 1)[0]
 
   //add the selected card to the 'team'
@@ -38,11 +40,13 @@ function clickCost(event) {
 var render = {
   //renders characters in state.pool.active
   active: function () {
-    var heroes = state.pool.active[0]
-    var villains = state.pool.active[1]
-    var activeCharacters = heroes.concat(villains)
+    //use below to combine heroes and villains
+    // var heroes = state.pool.active[0]
+    // var villains = state.pool.active[1]
+    // var activeCharacters = heroes.concat(villains)
 
-    console.log(activeCharacters)
+    var activeCharacters = state.pool.active
+
     var content = document.querySelector('.characters-content')
     content.innerHTML = ''
     var characters = ''
@@ -80,6 +84,7 @@ var render = {
       characters += characterWrap(activeCharacters[i], i)
     }
     content.innerHTML = characters
+    console.log(characters)
 
     //get the cost (for targeting)
     var characterCost = document.querySelectorAll('.character-wrap .cost')

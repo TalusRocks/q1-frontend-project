@@ -19,7 +19,7 @@ function characterWrap (character, idx, location) {
         ${character.unique ? '<i class="fa fa-star mrg-left"></i>' : ''}
         <p class=" character-name mrg-left">
           ${character.name}
-          <br><span class="tiny mrg-left">${character.subtitle}</span>
+          <span class="tiny mrg-left">${character.subtitle}</span>
         </p>
         <p class="health mrg-right">${character.health}</p>
         ${hasRemoveMe ? '<a href="#" class="remove-me"><i class="fa fa-times"></i></a>' : ''}
