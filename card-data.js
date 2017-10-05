@@ -111,6 +111,14 @@ let heroes = [{
   color: 'red',
   side: 'hero'
 }, {
+  name: 'Mon Mothma',
+  subtitle: 'Skilled Politician',
+  cost: [ { point: 11, selected: false}, { point: 14, selected: false }],
+  health: 9,
+  unique: true,
+  color: 'red',
+  side: 'hero'
+}, {
   name: 'Ezra Bridger',
   subtitle: 'Force-Sensitive Thief',
   cost: [ { point: 7, selected: false}, { point: 10, selected: false }],
@@ -134,6 +142,14 @@ let heroes = [{
   unique: true,
   color: 'yellow',
   side: 'hero'
+}, {
+    name: 'Sabine Wren',
+    subtitle: 'Explosives Expert',
+    cost: [ { point: 15, selected: false}, { point: 20, selected: false }],
+    health: 11,
+    unique: true,
+    color: 'yellow',
+    side: 'hero'
 }]
 //
 // let villains = [

@@ -12,6 +12,24 @@ var state = {
   hidden: []
 }
 
+let testingTest = function(){}
+
+function getStorage() {
+  let currentTeam = state.team.cards
+  localStorage.getItem('savedTeam', JSON.stringify(currentTeam))
+}
+getStorage()
+
+function updateStorage() {
+  let currentTeam = state.team.cards
+  localStorage.getItem('savedTeam', JSON.stringify(currentTeam))
+  localStorage.setItem('savedTeam', JSON.stringify(currentTeam))
+}
+
+function removeStorage() {
+  localStorage.removeItem('savedTeam')
+}
+
 //moves characters to the team, and selects clicked die
 function clickCost(event) {
   //make both the div and inner p targets for cost
@@ -35,6 +53,7 @@ function clickCost(event) {
   render.total()
   render.disabled()
   filter.colorFilter()
+  updateStorage()
 }
 
 var render = {
@@ -84,7 +103,6 @@ var render = {
       characters += characterWrap(activeCharacters[i], i)
     }
     content.innerHTML = characters
-    console.log(characters)
 
     //get the cost (for targeting)
     var characterCost = document.querySelectorAll('.character-wrap .cost')
@@ -118,6 +136,12 @@ var render = {
   },
   //renders the team
   team: function () {
+    //add localStorage characters to state.team.cards
+    // console.log(JSON.parse(localStorage.getItem('savedTeam')))
+    // let remember = JSON.parse(localStorage.getItem('savedTeam'))
+    // state.team.cards.push(remember)
+    // console.log(state.team.cards)
+
     var teamCharacters = state.team.cards
     var content = document.querySelector('#team-content')
     content.innerHTML = ''
@@ -139,13 +163,18 @@ var render = {
 
         //splice out of state.team.cards
         var card = state.team.cards.splice(teamPosition, 1)[0]
-
         //change things, like selected cost to false for both
         card.cost[0].selected = false
         card.cost[1].selected = false
-
         //push onto state.pool.active
         state.pool.active.push(card)
+
+        //AND splice out of localStorage...
+        //localStorage.removeItem('savedTeam')
+        //how to target just the one?
+
+        //OR, re-write the team again?
+        updateStorage()
 
       render.team()
       render.active()
@@ -176,18 +205,11 @@ var render = {
     displayTotal.textContent = total
 
     //if too many characters are selected, show an error msg
-    if((total) < 0) {
-      let alert = document.createElement('div');
-      alert.innerHTML = "too many points";
-      alert.className = "alert";
-      let teamCount = document.querySelector('.team-count');
-      teamCount.append(alert);
+
+    if(total < 0) {
+      let alert = document.querySelector('.alert')
+      alert.classList.remove('none')
     }
-    // else {
-    //   //subtract selected from total
-    //   total.textContent -= thisCost;
-    //   state.team.max = total.textContent;
-    // }
   }
 }
 
@@ -196,6 +218,7 @@ render.team()
 render.total()
 filter.colorFilter()
 
-// module.exports = {
-//   clickCost : clickCost
-// }
+
+module.exports = {
+
+}
