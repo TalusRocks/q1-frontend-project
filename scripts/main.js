@@ -1,6 +1,6 @@
 var state = {
   pool: {
-    active: heroes,
+    active: [heroes, villains],
     disabled: []
   },
   team: {
@@ -38,7 +38,11 @@ function clickCost(event) {
 var render = {
   //renders characters in state.pool.active
   active: function () {
-    var activeCharacters = state.pool.active
+    var heroes = state.pool.active[0]
+    var villains = state.pool.active[1]
+    var activeCharacters = heroes.concat(villains)
+
+    console.log(activeCharacters)
     var content = document.querySelector('.characters-content')
     content.innerHTML = ''
     var characters = ''
@@ -186,3 +190,7 @@ render.active()
 render.team()
 render.total()
 filter.colorFilter()
+
+// module.exports = {
+//   clickCost : clickCost
+// }

@@ -54,7 +54,7 @@ var filter = {
 
         blueToggle.classList.remove('blue-toggle-off')
       }
-      //re-render active characters 
+      //re-render active characters
       render.active()
     }) //close event listener
 
