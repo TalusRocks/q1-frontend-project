@@ -1,7 +1,6 @@
 var state = {
   pool: {
     active: heroes,
-    //[heroes, villains],
     disabled: []
   },
   team: {
@@ -217,8 +216,3 @@ render.active()
 render.team()
 render.total()
 filter.colorFilter()
-
-
-module.exports = {
-
-}
