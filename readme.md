@@ -19,7 +19,9 @@ Users can:
   * Filter characters by color
   * See the remaining point total dynamically update
 
-> Demo Here
+![][q1-project-screenshot.png]
+
+> [Demo Here](http://choose-your-destiny-team.surge.sh/)
 
 ## Installation
 
