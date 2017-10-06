@@ -5,13 +5,13 @@ var filter = {
     let redToggle = document.querySelector('.red-toggle')
     let yellowToggle = document.querySelector('.yellow-toggle')
 
-    //this is the pool to filter 
+    //this is the pool to filter
     let heroes = state.pool.active
 
     blueToggle.addEventListener('click', function() {
       let show = false
       //if heroes is empty or greater, run this check
-      if(heroes.length > 0){
+      // if(heroes.length > 0){
         //if heroes has any of this color, they are showing (show = true), else, show = false
         for (let k = 0; k < heroes.length; k++) {
           if (heroes[k].color.includes('blue')) {
@@ -21,7 +21,7 @@ var filter = {
             show = false
           }
         }
-      }
+      // }
 
       //if blue is showing, click hides them
       //else, click shows them
@@ -55,7 +55,7 @@ var filter = {
 
     redToggle.addEventListener('click', function() {
       let show = false
-      if(heroes.length > 0){
+      // if(heroes.length > 0){
         for (let k = 0; k < heroes.length; k++) {
           if (heroes[k].color.includes('red')) {
             show = true
@@ -64,7 +64,7 @@ var filter = {
             show = false
           }
         }
-      }
+      // }
       if (show === true) {
         for (let i = 0; i < heroes.length; i++) {
           if (heroes[i].color === 'red') {
@@ -89,7 +89,7 @@ var filter = {
 
     yellowToggle.addEventListener('click', function() {
       let show = false
-      if(heroes.length > 0){
+      // if(heroes.length > 0){
         for (let k = 0; k < heroes.length; k++) {
           if (heroes[k].color.includes('yellow')) {
             show = true
@@ -98,7 +98,7 @@ var filter = {
             show = false
           }
         }
-      }
+      // }
       if (show === true) {
         for (let i = 0; i < heroes.length; i++) {
           if (heroes[i].color === 'yellow') {

@@ -10,8 +10,6 @@ var state = {
   hidden: []
 }
 
-let testingTest = function(){}
-
 //STORAGE
 // function getStorage() {
 //   let currentTeam = state.team.cards
@@ -51,7 +49,6 @@ function clickCost(event) {
   render.team()
   render.total()
   render.disabled()
-  filter.colorFilter()
   //updateStorage()
 }
 
