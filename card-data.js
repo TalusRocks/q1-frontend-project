@@ -76,6 +76,14 @@ let heroes = [{
   unique: false,
   color: 'blue',
   side: 'hero'
+},{
+  name: 'Ahsoka Tano',
+  subtitle: 'Force Operative',
+  cost: [ { point: 13, selected: false}, { point: 17, selected: false }],
+  health: 11,
+  unique: true,
+  color: 'blue',
+  side: 'hero'
 },
 {
   name: 'Qui-Gon Jinn',
@@ -85,8 +93,23 @@ let heroes = [{
   unique: true,
   color: 'blue',
   side: 'hero'
-},
-{
+}, {
+  name: 'Poe Dameron',
+  subtitle: 'Ace Pilot',
+  cost: [ { point: 14, selected: false}, { point: 18, selected: false }],
+  health: 12,
+  unique: true,
+  color: 'red',
+  side: 'hero'
+}, {
+  name: 'Baze Malbus',
+  subtitle: 'Crack Shot',
+  cost: [ { point: 14, selected: false}, { point: 18, selected: false }],
+  health: 11,
+  unique: true,
+  color: 'red',
+  side: 'hero'
+}, {
   name: 'Rebel Trooper',
   subtitle: 'Rebel Trooper',
   cost: [ { point: 0, selected: false}, { point: 8, selected: false }],
@@ -139,6 +162,22 @@ let heroes = [{
   subtitle: 'Galactic Entrepreneur',
   cost: [ { point: 13, selected: false}, { point: 16, selected: false }],
   health: 11,
+  unique: true,
+  color: 'yellow',
+  side: 'hero'
+}, {
+  name: 'Chewbacca',
+  subtitle: 'Loyal Friend',
+  cost: [ { point: 12, selected: false}, { point: 16, selected: false }],
+  health: 12,
+  unique: true,
+  color: 'yellow',
+  side: 'hero'
+}, {
+  name: 'Padme Amidala',
+  subtitle: 'Queen of Naboo',
+  cost: [ { point: 10, selected: false}, { point: 14, selected: false }],
+  health: 10,
   unique: true,
   color: 'yellow',
   side: 'hero'

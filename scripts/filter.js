@@ -4,14 +4,8 @@ var filter = {
     let blueToggle = document.querySelector('.blue-toggle')
     let redToggle = document.querySelector('.red-toggle')
     let yellowToggle = document.querySelector('.yellow-toggle')
-    //get the classes of active characters, for hiding
-    let blueCharacters = document.querySelectorAll('.character-wrap .blue')
-    let redCharacters = document.querySelectorAll('.character-wrap .red')
-    let yellowCharacters = document.querySelectorAll('.character-wrap .yellow')
 
-
-
-
+    //this is the pool to filter 
     let heroes = state.pool.active
 
     blueToggle.addEventListener('click', function() {

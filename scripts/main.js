@@ -5,7 +5,6 @@ var state = {
   },
   team: {
     cards: [],
-    //max: 30,
     total: 30
   },
   hidden: []
@@ -13,21 +12,22 @@ var state = {
 
 let testingTest = function(){}
 
-function getStorage() {
-  let currentTeam = state.team.cards
-  localStorage.getItem('savedTeam', JSON.stringify(currentTeam))
-}
-getStorage()
-
-function updateStorage() {
-  let currentTeam = state.team.cards
-  localStorage.getItem('savedTeam', JSON.stringify(currentTeam))
-  localStorage.setItem('savedTeam', JSON.stringify(currentTeam))
-}
-
-function removeStorage() {
-  localStorage.removeItem('savedTeam')
-}
+//STORAGE
+// function getStorage() {
+//   let currentTeam = state.team.cards
+//   localStorage.getItem('savedTeam', JSON.stringify(currentTeam))
+// }
+// getStorage()
+//
+// function updateStorage() {
+//   let currentTeam = state.team.cards
+//   localStorage.getItem('savedTeam', JSON.stringify(currentTeam))
+//   localStorage.setItem('savedTeam', JSON.stringify(currentTeam))
+// }
+//
+// function removeStorage() {
+//   localStorage.removeItem('savedTeam')
+// }
 
 //moves characters to the team, and selects clicked die
 function clickCost(event) {
@@ -52,7 +52,7 @@ function clickCost(event) {
   render.total()
   render.disabled()
   filter.colorFilter()
-  updateStorage()
+  //updateStorage()
 }
 
 var render = {
@@ -135,12 +135,6 @@ var render = {
   },
   //renders the team
   team: function () {
-    //add localStorage characters to state.team.cards
-    // console.log(JSON.parse(localStorage.getItem('savedTeam')))
-    // let remember = JSON.parse(localStorage.getItem('savedTeam'))
-    // state.team.cards.push(remember)
-    // console.log(state.team.cards)
-
     var teamCharacters = state.team.cards
     var content = document.querySelector('#team-content')
     content.innerHTML = ''
@@ -173,7 +167,7 @@ var render = {
         //how to target just the one?
 
         //OR, re-write the team again?
-        updateStorage()
+        //updateStorage()
 
       render.team()
       render.active()
@@ -204,7 +198,6 @@ var render = {
     displayTotal.textContent = total
 
     //if too many characters are selected, show an error msg
-
     if(total < 0) {
       let alert = document.querySelector('.alert')
       alert.classList.remove('none')
