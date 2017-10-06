@@ -1,8 +1,12 @@
 let expect = chai.expect
-console.log(testingTest)
-describe('destiny js', function() {
-  it('testingTest is a function', function() {
-  //  expect(testingTest).to.be.a(function)
-    expect(1).to.equal(1)
+
+describe('total', function() {
+  it('30 is 30', function() {
+    expect(30).to.equal(30)
   })
+
+  it('clickCost is a function', function () {
+    expect(clickCost).to.be.a('function');
+  })
+  
 })
