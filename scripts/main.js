@@ -195,9 +195,11 @@ var render = {
     displayTotal.textContent = total
 
     //if too many characters are selected, show an error msg
+    let alert = document.querySelector('.alert')
     if(total < 0) {
-      let alert = document.querySelector('.alert')
       alert.classList.remove('none')
+    } else {
+      alert.classList.add('none')
     }
   }
 }
